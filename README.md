@@ -18,5 +18,10 @@ $ npm start
 Then, load http://localhost:3000 in a browser to see the webapp
 
 
-# Screen shots
+# Screenshots
 
+![screen1](https://github.com/vorachet/executable-truth-table-webapp-examples/blob/master/images/screen1.png)
+
+![screen2](https://github.com/vorachet/executable-truth-table-webapp-examples/blob/master/images/screen2.png)
+
+![screen3](https://github.com/vorachet/executable-truth-table-webapp-examples/blob/master/images/screen3.png)
