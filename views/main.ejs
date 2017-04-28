@@ -1,0 +1,56 @@
+<% layout('layout') -%>
+
+<h1 class="subtitle">DEMO</h1>
+
+<h1 class="title"><%= title %> Truth Table</h1>
+
+<div class="box" style="width: 800px;">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>Vorachet Jaroensawas</strong> <small><a href="https://twitter.com/aotvorachet" target="twitter">@aotvorachet</a></small>
+          <br>
+          This demo shows result of the integration. The TTABLE object "<%= title %>" can show the  Truth Table specification and statistic HTML table that generated from the library. You can feed data to the TTABLE object using the HTML form below and see result in the statistic HTML table and data. The result in the statistic will be computed based on the condition and the decision settings of the TTABLE object as shown in the code example.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<pre><code class="javascript"><%= codeExample %></code></pre>
+
+<div class="c-card" style="margin-bottom: 50px;width: 800px;">
+  <form method="POST" action="execute?ttable=<%= queryName %>">
+    <pre><code class="javascript">ttable.read (</code></pre>
+    <div class="field">
+      <p class="control">
+        <input class="input" type="text" name="data" value="<%= sampleInput %>">
+      </p>
+    </div>
+     <pre><code class="javascript">)</code></pre>
+     <button class="button is-primary">execute</button>
+  </form>
+</div>
+
+<div class="c-card">
+  <div class="c-card__item c-card__item--divider"><%= title.toUpperCase() %> TRUTH TABLE SPECIFICATION</div>
+  <pre><code class="javascript">var specTable = ttable.exportSpecAsHTML() // Export this HTML table using exportSpecAsHTML()</code></pre>
+  <%- specHTMLTable %>
+</div>
+
+<div class="c-card" style="width: 800px;">
+  <div class="c-card__item c-card__item--divider"><%= title.toUpperCase() %> STATISTIC TABLE</div>
+  <pre><code class="javascript">var statisticsTable = ttable.exportStatAsHTML() // Export this HTML table using exportStatAsHTML()</code></pre>
+  <%- statisticsHTMLTable %>
+</div>
+
+<div class="c-card" style="width: 800px;">
+  <div class="c-card__item c-card__item--divider"><%= title.toUpperCase() %> STATISTIC DATA</div>
+  <pre><code class="javascript">console.log(ttable.statistics)// get statistic JSON data  </code></pre>
+  <div class="c-card c-card--accordion u-high">
+    <input type="checkbox" id="accordion-1">
+    <label class="c-card__item" for="accordion-1">JSON</label>
+    <div class="c-card__item"><pre><code class="javascript"><%= statistics %></code></pre></div>
+  </div>
+</div>

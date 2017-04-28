@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Executable Truth Table for Node.js</title>
+    <meta name="description" content="The Executable Truth Table for Javascript">
+    <meta name="author" content="Vorachet Jaroensawas">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://unpkg.com/blaze">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/atom-one-light.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+      html {
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item">
+      <h2 class="title">TTABLE</h2>
+    </a>
+  </div>
+
+  <div class="nav-right nav-menu">
+    <a class="nav-item" href="https://github.com/vorachet/executable-truth-table-webapp-examples">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span> GITHUB
+    </a>
+  </div>
+</nav>
+
+
+<div class="columns">
+  <div class="column is-one-quarter">
+    <aside class="menu">
+      <p class="menu-label">
+        WEBAPP INTEGRATION EXAMPLES
+      </p>
+      <ul class="menu-list">
+        <li><a href="/">Introduction</a></li>
+        <li>
+          <a>Using TTABLE in Express</a>
+          <ul>
+            <li><a href="/view?ttable=climateController">Climate Controller</a></li>
+            <li><a href="/view?ttable=colors">Colors</a></li>
+            <li><a>Other examples coming soon...</a></li>
+          </ul>
+        </li>
+      </ul>
+       <p class="menu-label">
+        Applications of TTABLE
+      </p>
+      <ul class="menu-list">
+        <li>
+          <a>I'm working on it...</a>
+        </li>
+      </ul>
+      <p class="menu-label">
+        Discrete-Event Projects
+      </p>
+      <ul class="menu-list">
+        <li><a href="https://github.com/vorachet/executable-truth-table">TTABLE Library</a></li>
+            <li><a href="https://github.com/vorachet/executable-truth-table-webapp-examples">TTABLE WebApp Integration Examples</a></li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <%- body %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block)
+    })
+  })
+</script>
+
+
+
+
+
+
+  </body>
+</html>
