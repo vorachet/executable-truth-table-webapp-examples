@@ -1,6 +1,6 @@
 {
   "name": "executable-truth-table-webapp-examples",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Executable Truth Table WebApp Examples",
   "main": "index.js",
   "scripts": {
