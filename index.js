@@ -20,7 +20,9 @@ app.set('view engine', 'ejs')
 const _climateDemo = ClimateDemo.getInstance
 const _colorsDemo = ColorsDemo.getInstance
 
-var CONFIG = {}
+var CONFIG = {
+  MAX_FEED: 50
+}
 CONFIG[ClimateDemo.queryName] = {
   codeExample: ClimateDemo.codeExample,
   title: ClimateDemo.title,
@@ -65,6 +67,8 @@ app.post('/execute', function (req, res) {
   const data = JSON.parse(req.body.data)
 
   ttable.read(data)
+
+  if (ttable.statistics.performed.length > CONFIG.MAX_FEED) ttable.statistics.performed = []
 
   res.redirect('/view?ttable=' + req.query.ttable)
 })
