@@ -30,13 +30,14 @@ function HeatOn() {
 }
 
 const ttable = new TTABLE()
+ttable.disjunctionMode()
 ttable
-  .setCondition({state: "Hot", equation: "tempSensor > DESIRED_TEMP"})
-  .setCondition({state: "Dry", equation: "humiditySensor < DESIRED_HUMIDITY"})
-  .setDecision({run: [HeatOn],          if: [{state: "Dry", is: true},  {state: "Hot", is: false}]})
-  .setDecision({run: [HumidOn, CoolOn], if: [{state: "Dry", is: true},  {state: "Hot", is: true}]})
-  .setDecision({run: [CoolOn],          if: [{state: "Hot", is: true},  {state: "Dry", is: false}]})
-  .setDecision({run: [HeatOn, HumidOn], if: [{state: "Hot", is: false}, {state: "Dry", is: false}]})
+    .setCondition({state: "Cold", equation: "tempSensor < DESIRED_TEMP"})
+    .setCondition({state: "Hot", equation: "tempSensor > DESIRED_TEMP"})
+    .setCondition({state: "Dry", equation: "humiditySensor < DESIRED_HUMIDITY"})
+    .setDecision({run: [CoolOn], if: ["Hot"]})
+    .setDecision({run: [HeatOn], if: ["Cold"]})
+    .setDecision({run: [HumidOn],if: ["Dry"]})
 
 module.exports = {
   getInstance: ttable,
@@ -44,7 +45,9 @@ module.exports = {
   title: 'Climate Controller',
   sampleInput: {DESIRED_TEMP: 70, DESIRED_HUMIDITY: 40, tempSensor: 40, humiditySensor: 80},
   codeExample:
-    "const TTABLE = require('executable-truth-table')\r\n\r\n" +
+    "\"use strict\"\r\n" +
+    "const debug = require('debug')('ttable-climate-controller')\r\n" +
+    "const TTABLE = require('executable-truth-table')\r\n" +
     "function startCooler() { debug('\\t startCooler()') }\r\n" +
     "function stopCooler() { debug('\\t stopCooler()') }\r\n" +
     "function startHumidifier() { debug('\\t startHumidifier()') }\r\n" +
@@ -68,12 +71,12 @@ module.exports = {
     "    stopHumidifier()\r\n" +
     "}\r\n" +
     "const ttable = new TTABLE()\r\n" +
+    "ttable.disjunctionMode()\r\n" +
     "ttable\r\n" +
-    "  .setCondition({state: \"Hot\", equation: \"tempSensor > DESIRED_TEMP\"})\r\n" +
-    "  .setCondition({state: \"Dry\", equation: \"humiditySensor < DESIRED_HUMIDITY\"})\r\n" +
-    "  .setDecision({run: [HeatOn],          if: [{state: \"Dry\", is: true},  {state: \"Hot\", is: false}]})\r\n" +
-    "  .setDecision({run: [HumidOn, CoolOn], if: [{state: \"Dry\", is: true},  {state: \"Hot\", is: true}]})\r\n" +
-    "  .setDecision({run: [CoolOn],          if: [{state: \"Hot\", is: true},  {state: \"Dry\", is: false}]})\r\n" +
-    "  .setDecision({run: [HeatOn, HumidOn], if: [{state: \"Hot\", is: false}, {state: \"Dry\", is: false}]})\r\n"
-
+    "    .setCondition({state: \"Cold\", equation: \"tempSensor < DESIRED_TEMP\"})\r\n" +
+    "    .setCondition({state: \"Hot\", equation: \"tempSensor > DESIRED_TEMP\"})\r\n" +
+    "    .setCondition({state: \"Dry\", equation: \"humiditySensor < DESIRED_HUMIDITY\"})\r\n" +
+    "    .setDecision({run: [CoolOn], if: [\"Hot\"]})\r\n" +
+    "    .setDecision({run: [HeatOn], if: [\"Cold\"]})\r\n" +
+    "    .setDecision({run: [HumidOn],if: [\"Dry\"]})\r\n"
 }

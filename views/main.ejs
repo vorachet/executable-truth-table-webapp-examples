@@ -11,7 +11,7 @@
         <p>
           <strong>Vorachet Jaroensawas</strong> <small><a href="https://twitter.com/aotvorachet" target="twitter">@aotvorachet</a></small>
           <br>
-          This demo shows result of the integration. The TTABLE object "<%= title %>" can show the  Truth Table specification and statistic HTML table that generated from the library. You can feed data to the TTABLE object using the HTML form below and see result in the statistic HTML table and data. The result in the statistic will be computed based on the condition and the decision settings of the TTABLE object as shown in the code example.
+          This demo shows result of the integration. The TTABLE object "<%= title %>" can show the  Truth Table specification and statistic HTML table that generated from the library. You can feed data to the TTABLE object using the HTML form below. The result will be computed based on the condition and the decision settings of the TTABLE object as shown in the code example.
         </p>
       </div>
     </div>
@@ -22,7 +22,7 @@
 
 <div class="c-card" style="margin-bottom: 50px;width: 800px;">
   <form method="POST" action="execute?ttable=<%= queryName %>">
-    <pre><code class="javascript">ttable.read (</code></pre>
+    <pre><code class="javascript">ttable.eval (</code></pre>
     <div class="field">
       <p class="control">
         <input class="input" type="text" name="data" value="<%= sampleInput %>">
