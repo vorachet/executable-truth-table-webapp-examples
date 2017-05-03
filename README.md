@@ -26,6 +26,9 @@ Then, load http://localhost:3000 in a browser to see the webapp
 
 ![screen3](https://github.com/vorachet/executable-truth-table-webapp-examples/blob/master/images/screen3.png)
 
+![screen4](https://github.com/vorachet/executable-truth-table-webapp-examples/blob/master/images/screen4.png)
+
+
 # Live Demo
 
 [Live Demo](http://ttable.script-conductive.com)
